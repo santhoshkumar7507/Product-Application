@@ -1,12 +1,13 @@
 import { useProducts } from "../hooks/useProducts";
-import { PackageIcon, SparklesIcon } from "lucide-react";
+import { PackageIcon, SparklesIcon, ArrowRightIcon } from "lucide-react";
 import { Link } from "react-router";
 import LoadingSpinner from "../components/LoadingSpinner";
 import ProductCard from "../components/ProductCard";
-import { SignInButton } from "@clerk/clerk-react";
+import { SignInButton, useAuth } from "@clerk/clerk-react";
 
 function HomePage() {
   const { data: products, isLoading, error } = useProducts();
+  const { isSignedIn } = useAuth();
 
   if (isLoading) return <LoadingSpinner />;
 
@@ -28,7 +29,7 @@ function HomePage() {
             <img
               src="/image.png"
               alt="Creator"
-              className="relative h-64 lg:h-72 rounded-2xl shadow-2xl"
+              className="relative h-64 lg:h-72 rounded-2xl shadow-2xl transition-transform hover:scale-105 duration-500"
             />
           </div>
           <div className="text-center lg:text-left">
@@ -36,14 +37,22 @@ function HomePage() {
               Share Your <span className="text-primary">Products</span>
             </h1>
             <p className="py-4 text-base-content/60">
-              Upload, discover, and connect with creators.
+              Upload, discover, and connect with creators across the globe.
             </p>
-            <SignInButton mode="modal">
-              <button className="btn btn-primary">
+            {isSignedIn ? (
+              <Link to="/create" className="btn btn-primary shadow-lg shadow-primary/30 hover:scale-105 transition-transform">
                 <SparklesIcon className="size-4" />
-                Start Selling
-              </button>
-            </SignInButton>
+                Start Selling Now
+                <ArrowRightIcon className="size-4 ml-1" />
+              </Link>
+            ) : (
+              <SignInButton mode="modal">
+                <button className="btn btn-primary shadow-lg shadow-primary/30 hover:scale-105 transition-transform">
+                  <SparklesIcon className="size-4" />
+                  Start Selling
+                </button>
+              </SignInButton>
+            )}
           </div>
         </div>
       </div>
