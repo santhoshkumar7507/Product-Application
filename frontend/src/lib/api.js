@@ -83,27 +83,58 @@ export const getMyProducts = async () => {
 };
 
 export const createProduct = async (productData) => {
-  const { data } = await api.post("/products", productData);
-  return data;
+  const newProduct = {
+    ...productData,
+    id: `prod_${Date.now()}`,
+    createdAt: new Date().toISOString(),
+    user: { name: "Demo User", imageUrl: "https://api.dicebear.com/7.x/avataaars/svg?seed=Demo" },
+    comments: []
+  };
+  dummyProducts.unshift(newProduct);
+  return newProduct;
 };
 
 export const updateProduct = async ({ id, ...productData }) => {
-  const { data } = await api.put(`/products/${id}`, productData);
-  return data;
+  const index = dummyProducts.findIndex(p => String(p.id) === String(id));
+  if (index !== -1) {
+    dummyProducts[index] = { ...dummyProducts[index], ...productData };
+    return dummyProducts[index];
+  }
+  throw new Error("Product not found");
 };
 
 export const deleteProduct = async (id) => {
-  const { data } = await api.delete(`/products/${id}`);
-  return data;
+  const index = dummyProducts.findIndex(p => String(p.id) === String(id));
+  if (index !== -1) {
+    dummyProducts.splice(index, 1);
+    return { success: true };
+  }
+  throw new Error("Product not found");
 };
 
 // Comments API
 export const createComment = async ({ productId, content }) => {
-  const { data } = await api.post(`/comments/${productId}`, { content });
-  return data;
+  const product = dummyProducts.find(p => String(p.id) === String(productId));
+  if (product) {
+    const newComment = {
+      id: Date.now(),
+      content,
+      user: { name: "Demo User", imageUrl: "https://api.dicebear.com/7.x/avataaars/svg?seed=Demo" },
+      createdAt: new Date().toISOString()
+    };
+    product.comments.push(newComment);
+    return newComment;
+  }
+  throw new Error("Product not found");
 };
 
 export const deleteComment = async ({ commentId }) => {
-  const { data } = await api.delete(`/comments/${commentId}`);
-  return data;
+  for (let product of dummyProducts) {
+    const index = product.comments.findIndex(c => String(c.id) === String(commentId));
+    if (index !== -1) {
+      product.comments.splice(index, 1);
+      return { success: true };
+    }
+  }
+  throw new Error("Comment not found");
 };
