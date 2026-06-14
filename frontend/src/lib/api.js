@@ -10,13 +10,13 @@ export const syncUser = async (userData) => {
 const dummyProducts = [
   {
     id: "prod_1",
-    title: "Aura Noise-Cancelling Headphones",
-    description: "Experience silence like never before. High-fidelity audio combined with industry-leading active noise cancellation.",
-    price: 299.99,
-    imageUrl: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=800&q=80",
+    title: "Coca-Cola Original Taste",
+    description: "The classic, refreshing taste of Coca-Cola. Serve ice cold for maximum refreshment. It Should be Cold Drink!",
+    price: 1.99,
+    imageUrl: "https://images.unsplash.com/photo-1622483767028-3f66f32aef97?auto=format&fit=crop&w=800&q=80",
     createdAt: new Date().toISOString(),
-    user: { name: "AudioTech", imageUrl: "https://api.dicebear.com/7.x/avataaars/svg?seed=AudioTech" },
-    comments: [{ id: 1, content: "Amazing sound quality!", user: { name: "John", imageUrl: "https://api.dicebear.com/7.x/avataaars/svg?seed=John" }, createdAt: new Date().toISOString() }]
+    user: { name: "Beverage Co", imageUrl: "https://api.dicebear.com/7.x/avataaars/svg?seed=Coke" },
+    comments: [{ id: 1, content: "Nothing beats a cold Coke!", user: { name: "John", imageUrl: "https://api.dicebear.com/7.x/avataaars/svg?seed=John" }, createdAt: new Date().toISOString() }]
   },
   {
     id: "prod_2",
