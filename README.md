@@ -1,30 +1,32 @@
 <div align="center">
-  <img src="/frontend/public/screenshot-for-readme.png" alt="Productify Demo App" width="100%" style="border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
+  <img src="frontend/public/screenshot-for-readme.png" alt="Productify Demo App" width="100%" style="border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
 
   <br />
   <br />
 
-  <h1>✨ Productify - Next-Gen E-Commerce Platform ✨</h1>
+  <h1 align="center">✨ Productify ✨</h1>
+  <h3 align="center">Next-Gen E-Commerce Platform</h3>
 
-  <p>
+  <p align="center">
     <strong>A blazing fast, beautifully designed, full-stack product marketplace.</strong>
   </p>
 
-  <p>
-    <a href="#features">Features</a> •
-    <a href="#tech-stack">Tech Stack</a> •
-    <a href="#architecture">Architecture</a> •
-    <a href="#quick-start">Quick Start</a> •
-    <a href="#environment-variables">Configuration</a> •
-    <a href="#contributing">Contributing</a>
+  <p align="center">
+    <a href="#-features">Features</a> •
+    <a href="#-architecture">Architecture</a> •
+    <a href="#-tech-stack">Tech Stack</a> •
+    <a href="#-quick-start">Quick Start</a> •
+    <a href="#-environment-setup">Configuration</a> •
+    <a href="#-contributing">Contributing</a>
   </p>
 
-  <p>
-    <img src="https://img.shields.io/badge/React-19.0-blue.svg?style=for-the-badge&logo=react" alt="React" />
-    <img src="https://img.shields.io/badge/Vite-7.0-purple.svg?style=for-the-badge&logo=vite" alt="Vite" />
-    <img src="https://img.shields.io/badge/Node.js-20.x-green.svg?style=for-the-badge&logo=node.js" alt="Node" />
-    <img src="https://img.shields.io/badge/PostgreSQL-16-blue.svg?style=for-the-badge&logo=postgresql" alt="Postgres" />
-    <img src="https://img.shields.io/badge/Tailwind-4.1-38B2AC.svg?style=for-the-badge&logo=tailwind-css" alt="Tailwind" />
+  <p align="center">
+    <img src="https://img.shields.io/badge/React-19.0-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React" />
+    <img src="https://img.shields.io/badge/Vite-7.0-B73CE5?style=for-the-badge&logo=vite&logoColor=FFD62E" alt="Vite" />
+    <img src="https://img.shields.io/badge/Node.js-20.x-43853D?style=for-the-badge&logo=node.js&logoColor=white" alt="Node.js" />
+    <img src="https://img.shields.io/badge/PostgreSQL-16-316192?style=for-the-badge&logo=postgresql&logoColor=white" alt="PostgreSQL" />
+    <img src="https://img.shields.io/badge/Tailwind_CSS-4.1-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind CSS" />
+    <img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
   </p>
 </div>
 
@@ -32,7 +34,7 @@
 
 ## 🚀 About Productify
 
-Productify is a premium, high-performance web application designed for creators and sellers to showcase their products to the world. It provides a seamless, immersive user experience with instant loading times, optimistic UI updates, and an elegant responsive design.
+**Productify** is a premium, high-performance web application designed for creators and sellers to showcase their products to the world. It provides a seamless, immersive user experience with instant loading times, optimistic UI updates, and an elegant responsive design.
 
 Whether you're looking for an enterprise-ready architecture or a beautiful template for your next big idea, Productify sets the standard.
 
@@ -41,7 +43,7 @@ Whether you're looking for an enterprise-ready architecture or a beautiful templ
 
 ---
 
-## ✨ High-Impact Features
+## ✨ Features
 
 - 🛒 **Full-Stack Marketplace:** Complete end-to-end flow from browsing to creating products.
 - 🎨 **Gorgeous UI/UX:** Crafted with Tailwind CSS v4 and DaisyUI for an immersive, modern aesthetic.
@@ -110,12 +112,11 @@ cd ../frontend
 npm install
 ```
 
-### 3. Environment Setup
-Create a `.env` file in both the `backend` and `frontend` directories using the templates below.
-
 ---
 
-## 🔐 Environment Variables
+## 🔐 Environment Setup
+
+Create a `.env` file in both the `backend` and `frontend` directories using the templates below.
 
 > [!WARNING]  
 > Never commit your `.env` files to version control! They contain sensitive secrets.
