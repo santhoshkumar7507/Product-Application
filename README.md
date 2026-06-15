@@ -13,6 +13,7 @@
   <p>
     <a href="#features">Features</a> •
     <a href="#tech-stack">Tech Stack</a> •
+    <a href="#architecture">Architecture</a> •
     <a href="#quick-start">Quick Start</a> •
     <a href="#environment-variables">Configuration</a> •
     <a href="#contributing">Contributing</a>
@@ -35,6 +36,11 @@ Productify is a premium, high-performance web application designed for creators 
 
 Whether you're looking for an enterprise-ready architecture or a beautiful template for your next big idea, Productify sets the standard.
 
+> [!TIP]
+> **Why Productify?** It combines the ease of modern frontend tooling with a robust, type-safe backend, giving you the best of both worlds.
+
+---
+
 ## ✨ High-Impact Features
 
 - 🛒 **Full-Stack Marketplace:** Complete end-to-end flow from browsing to creating products.
@@ -47,27 +53,40 @@ Whether you're looking for an enterprise-ready architecture or a beautiful templ
 
 ---
 
+## 🏗️ Architecture
+
+```mermaid
+graph TD;
+    Client[React + Vite Frontend] -->|REST API| Server[Node.js + Express Backend];
+    Client -->|Auth| Clerk[Clerk Authentication];
+    Server -->|Auth Validation| Clerk;
+    Server -->|Drizzle ORM| DB[(PostgreSQL Database)];
+    Client -->|State Management| Query[TanStack Query];
+```
+
+---
+
 ## 🛠️ Tech Stack
 
-### Frontend
-- **Framework:** React 19 + Vite
-- **Styling:** Tailwind CSS v4 + DaisyUI
-- **Data Fetching:** TanStack React Query v5
-- **Icons:** Lucide React
-- **Routing:** React Router v7
-
-### Backend
-- **Runtime:** Node.js + Express
-- **Language:** TypeScript
-- **Database:** PostgreSQL
-- **ORM:** Drizzle ORM
-- **Authentication:** Clerk Express Middleware
+| Domain | Technology | Description |
+| :--- | :--- | :--- |
+| **Frontend** | React 19 + Vite | Next-generation frontend framework and bundler |
+| **Styling** | Tailwind CSS + DaisyUI | Utility-first CSS framework with pre-built components |
+| **Data Fetching** | TanStack React Query | Powerful asynchronous state management |
+| **Backend** | Node.js + Express | Fast, unopinionated web framework for Node.js |
+| **Language** | TypeScript | Strongly typed programming language |
+| **Database** | PostgreSQL | Advanced open-source relational database |
+| **ORM** | Drizzle ORM | Next-generation TypeScript ORM |
+| **Auth** | Clerk | Complete user management and authentication |
 
 ---
 
 ## ⚡ Quick Start
 
 Follow these steps to get your local development environment up and running in minutes!
+
+> [!IMPORTANT]  
+> Make sure you have **Node.js 20+** and a running instance of **PostgreSQL** before proceeding.
 
 ### 1. Clone the Repository
 ```bash
@@ -77,6 +96,10 @@ cd PERM-Stack-App
 
 ### 2. Install Dependencies
 We use separate package managers for the backend and frontend to keep things clean.
+
+> [!TIP]
+> You can also run `npm run build` from the root directory to install and build both frontend and backend automatically.
+
 ```bash
 # Install backend dependencies
 cd backend
@@ -93,6 +116,9 @@ Create a `.env` file in both the `backend` and `frontend` directories using the 
 ---
 
 ## 🔐 Environment Variables
+
+> [!WARNING]  
+> Never commit your `.env` files to version control! They contain sensitive secrets.
 
 ### Backend (`/backend/.env`)
 ```bash
